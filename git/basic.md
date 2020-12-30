@@ -2,7 +2,7 @@
 
 ## 1. git 핵심 주제어들
 
-- VCS : VCS(Version Control System)란? 파일 변화를 시간에 따라 기록했다가 나중에 특정 시점의 버전을 다시 꺼내올 수 있는 시스템
+- VCS : VCS(Version Control System)란? 파일 변화를 시간에 따라 기록했다가 나중에 특정 시점의 버전을 다시 꺼내올 수 있는 시스템, git은 VCS중 하나
 
 - Untracked : ![image-20201229170055490](basic.assets/image-20201229170055490.png)
 
