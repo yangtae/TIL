@@ -43,3 +43,11 @@
 | git checkout <branch/commit_id>                         | branch/commit_id 로 돌아가서(head) 볼수있다                  |
 | git merge <branch>                                      | master에 branch를 합친다                                     |
 | git remote -v                                           | 연결된 URL을 확인                                            |
+| git clone <URL>                                         | URL의 리포지토리를 그대로 가져온다                           |
+| touch .gitignore                                        | gitignore 생성                                               |
+
+프로젝트 실행시 해야 할 순서
+
+1. touch .gitignore
+2. touch README.md
+3. git init => add => commit
