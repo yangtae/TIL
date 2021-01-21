@@ -106,14 +106,92 @@ SELECT Name, height FROM userTBL
 
 
 
+SELECT Name, height FROM userTBL 
+
+WHERE name LIKE '김%';
+
+-% : 아무 글자가 와도 상관없음 (개 수에 제한 없음)
 
 
 
+SELECT Name, height WHERE name like '_종신';
+
+-_ : 한글자로 아무 글자가 와도 상관없음
 
   
 
-  
+- 원하는 순서대로 정렬하여 출력
+  - 오름차순 : ASC(디폴트, 생략가능)
+  - 내림차순 : DESC
+
+
+
+SELECT Name, mDate FROM userTBL ORDER BY mDate;
+
+-mDate의 오름 차순으로 정렬
+
+
+
+SELECT Name, mDate FROM userTBL ORDER BY mDate DESC;
+
+-mDate의 내림 차순으로 정렬
+
+
+
+- 중복된 것은 하나만 남기는 DISTINCT
+
+SELECT DISTINCT addr FROM userTBL
+
+
+
+- 출력하는 개수를 제한하는 LIMIT
+
+SELECT emp_no, hire_date FROM employees
+
+ORDER BY hire_date ASC
+
+LIMIT 5;
+
+
+
+- 테이블을 복사하는 CREATE TABLE ..SELECT
+  - 기존 테이블과 동일한 구조로 테이블 생성
+  - KEY 제약조건은 복사되지 않음
+    - 필드의 이름, 타입, 길이, NULL여부가 동일
+  - 특정 컬럼(SELECT 절 제시) 또는 특정 행만 (WHERE절 제시)복사 가능
+
+형식] CREATE TABLE [새로운 테이블명] (SELECT 복사할 열 FORM 기본테이블명)
 
   
 
-  
+CREATE TABLE buyTBL2 (SELECT * FROM buyTBL);
+
+SELECT * FROM buyTBL2
+
+
+
+- GROUP BY  그리고 집계함수
+  - GROUP BY 절
+    - 특정 컬럼에 대해 동일한 값을 가지는 행들을 하나의 행으로 처리
+    - 통계 작업에 사용
+
+SELECT userID as '사용자 아이디', SUM(amount) as '총 구매 개수'
+
+FROM buyTBL
+
+GROUP BY userID;
+
+![image-20210121230423866](mariaDB_01.assets/image-20210121230423866.png)
+
+
+
+- HAVING절
+  - GROUP BY 결과에서 필터링
+
+SELECT userID as '사용자', SUM(price*amount) AS '총구매액'
+
+FROM buyTBL
+
+GROUP BY userID
+
+HAVING SUM(price*amount) > 1000;
