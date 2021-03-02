@@ -1,5 +1,5 @@
 {
-    "sketch": "switch/ex03/app.ino",
+    "sketch": "switch/ex04/app.ino",
     "board": "arduino:avr:uno",
     "port": "COM4"
 }
